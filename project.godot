@@ -12,7 +12,14 @@ config_version=4
 
 config/name="clicker_game"
 run/main_scene="res://main.tscn"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [gui]
 
