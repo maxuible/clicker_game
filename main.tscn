@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+
+[node name="main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ClickerBtn" type="Button" parent="."]
+margin_left = 192.0
+margin_top = 64.0
+margin_right = 256.0
+margin_bottom = 128.0
+
+[node name="coinsPerClick" type="Label" parent="ClickerBtn"]
+margin_left = -128.0
+margin_top = 128.0
+margin_right = -64.0
+margin_bottom = 152.0
+text = "1"
+align = 1
+valign = 1
+
+[node name="TotalCLab" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 40.0
+margin_right = 320.0
+margin_bottom = 56.0
+text = "0"
+align = 2
+
+[node name="CoinLabel" type="Label" parent="TotalCLab"]
+margin_top = -16.0
+margin_right = 192.0
+margin_bottom = -2.0
+text = "Coins"
+align = 2
+
+[node name="CostLabel" type="Label" parent="TotalCLab"]
+margin_left = 192.0
+margin_top = 136.0
+margin_right = 256.0
+margin_bottom = 152.0
+text = "Cost"
+align = 1
+
+[node name="Label" type="Label" parent="TotalCLab"]
+margin_left = -64.0
+margin_top = 136.0
+margin_bottom = 152.0
+text = "#"
+align = 1
+valign = 1
+
+[node name="1CoinPerClickBtn" type="Button" parent="."]
+margin_left = 128.0
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 216.0
+text = "+1 Coins per Click"
+
+[node name="cost" type="Label" parent="1CoinPerClickBtn"]
+margin_left = 192.0
+margin_right = 256.0
+margin_bottom = 24.0
+text = "5"
+align = 1
+valign = 1
+
+[node name="1CoinPerSec" type="Button" parent="."]
+margin_left = 128.0
+margin_top = 232.0
+margin_right = 320.0
+margin_bottom = 256.0
+text = "+1 Coin per Second"
+
+[node name="cost" type="Label" parent="1CoinPerSec"]
+margin_left = 192.0
+margin_right = 256.0
+margin_bottom = 24.0
+text = "100"
+align = 1
+valign = 1
+
+[node name="1CoinPerSecTimer" type="Timer" parent="1CoinPerSec"]
+autostart = true
+
+[node name="amt" type="Label" parent="1CoinPerSec"]
+margin_left = -64.0
+margin_bottom = 24.0
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="ClickerBtn" to="." method="_on_ClickerBtn_pressed"]
+[connection signal="pressed" from="1CoinPerClickBtn" to="." method="_on_1CoinPerClickBtn_pressed"]
+[connection signal="pressed" from="1CoinPerSec" to="." method="_on_1CoinPerSec_pressed"]
+[connection signal="timeout" from="1CoinPerSec/1CoinPerSecTimer" to="." method="_on_1CoinPerSecTimer_timeout"]
